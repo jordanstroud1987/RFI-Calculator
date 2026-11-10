@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-6YL6GP8CD0"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-6YL6GP8CD0');
+  </script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Poker Range Tool</title>
+  <link rel="stylesheet" href="style.css"/>
+</head>
+<body>
+  <div class="container">
+    <header class="header">
+      <h1>Texas Holdem Raise First In(RFI) Calculator</h1>
+    </header>
+
+    <div class="layout">
+      <!-- Sidebar: controls -->
+      <aside class="card sidebar">
+        <form id="rangeForm">
+          <div class="form-group">
+            <label for="position">Position</label>
+            <select id="position" name="position">
+              <option value="UTG">UTG</option>
+              <option value="UTG1">UTG1</option>
+              <option value="MP">MP</option>
+              <option value="LJ">LJ</option>
+              <option value="HJ">HJ</option>
+              <option value="CO">CO</option>
+              <option value="BU">BU</option>
+              <option value="SB">SB</option>
+              <option value="BB">BB</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label for="limpers">Number of Limpers</label>
+            <input type="number" id="limpers" name="limpers" min="0" step="1" />
+          </div>
+
+          <div class="form-group">
+            <label for="raiseSize">Raise Size (in BB)</label>
+            <input type="number" id="raiseSize" name="raiseSize" min="2" step="0.05" />
+          </div>
+
+          <button type="submit">Calculate Range</button>
+        </form>
+      </aside>
+
+      <!-- Main content: two horizontal panels -->
+      <main class="main">
+        <section class="card panel">
+          <div class="panel-head">
+            <h3>Raise First In Range</h3>
+            <div class="actions">
+              <button id="rangeCopy" title="Copy min range">Copy</button>
+            </div>
+          </div>
+          <div id="parsedRangeDisplay" class="parsed-range"></div>
+          <div id="rangeGrid" class="poker-grid"></div>
+          <div class="legend">
+            <span class="sw sw-green" aria-hidden="true"></span> In range
+            <span class="sw sw-red" aria-hidden="true"></span> Out of range
+          </div>
+        </section>
+
+        <section class="card panel">
+          <div class="panel-head">
+            <h3>Maximum Continue</h3>
+            <div class="actions">
+              <button id="maxRangeCopy" title="Copy max range">Copy</button>
+            </div>
+          </div>
+          <div id="parsedRangeDisplayMax" class="parsed-range"></div>
+          <div id="rangeGridMax" class="poker-grid"></div>
+          <div class="legend">
+            <span class="sw sw-green" aria-hidden="true"></span> In range
+            <span class="sw sw-red" aria-hidden="true"></span> Out of range
+          </div>
+        </section>
+      </main>
+    </div>
+  </div>
+
+  <script src="script2.js"></script>
+</body>
+</html>
